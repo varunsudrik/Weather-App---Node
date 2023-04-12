@@ -15,7 +15,10 @@ app.get("/weather/:city", (req, res) => {
   request(url, (err, apiResponse) => {
     if (err) throw err;
     const output = JSON.parse(apiResponse.body);
-    res.send(output);
+    res.render("index", {
+      title: "Weather App",
+      result: output,
+    });
   });
 });
 
